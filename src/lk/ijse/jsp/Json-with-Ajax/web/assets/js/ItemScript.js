@@ -11,13 +11,17 @@ function getAllItems(){
         dataType:"json",
         success: function (items) {
             for (let i in items) {
-                console.log(items[i]);
 
                 let item = items[i];
+
                 let code = item.code;
-                let description = item.itemName;
+                let description = item.name;
                 let qtyOnHand = item.qty;
-                let unitPrice = item.unitPrice;
+                let unitPrice = item.price;
+
+                console.log(items[i]);
+
+
                 let row=`<tr><td>${code}</td><td>${description}</td><td>${qtyOnHand}</td><td>${unitPrice}</td></tr>`;
                 $("#tblItem").append(row);
             }
