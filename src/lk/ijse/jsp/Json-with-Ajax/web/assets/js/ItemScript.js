@@ -15,14 +15,14 @@ function getAllItems(){
                 let item = items[i];
 
                 let code = item.code;
-                let description = item.name;
-                let qtyOnHand = item.qty;
-                let unitPrice = item.price;
+                let ItemName = item.ItemName;
+                let qty = item.qty;
+                let price = item.price;
 
                 console.log(items[i]);
 
 
-                let row=`<tr><td>${code}</td><td>${description}</td><td>${qtyOnHand}</td><td>${unitPrice}</td></tr>`;
+                let row=`<tr><td>${code}</td><td>${ItemName}</td><td>${qty}</td><td>${price}</td></tr>`;
                 $("#tblItem").append(row);
             }
         },

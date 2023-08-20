@@ -2,16 +2,16 @@ package lk.ijse.ajex.dto;
 
 public class ItemDTO {
     private String code;
-    private String name;
+    private String ItemName;
     private int qty;
     private double price;
 
     public ItemDTO() {
     }
 
-    public ItemDTO(String code, String name, int qty, double price) {
+    public ItemDTO(String code, String itemName, int qty, double price) {
         this.code = code;
-        this.name = name;
+        ItemName = itemName;
         this.qty = qty;
         this.price = price;
     }
@@ -24,12 +24,12 @@ public class ItemDTO {
         this.code = code;
     }
 
-    public String getName() {
-        return name;
+    public String getItemName() {
+        return ItemName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItemName(String itemName) {
+        ItemName = itemName;
     }
 
     public int getQty() {

@@ -24,13 +24,13 @@ public class ItemServlet extends HttpServlet {
             JsonArrayBuilder allItems = Json.createArrayBuilder();
             while (rst.next()) {
                 String code = rst.getString(1);
-                String name = rst.getString(2);
+                String ItemName = rst.getString(2);
                 int qty = rst.getInt(3);
                 double price = rst.getDouble(4);
 
                 JsonObjectBuilder itemObject = Json.createObjectBuilder();
                 itemObject.add("code", code);
-                itemObject.add("name", name);
+                itemObject.add("ItemName", ItemName);
                 itemObject.add("qty", qty);
                 itemObject.add("price", price);
                 allItems.add(itemObject.build());
@@ -48,7 +48,7 @@ public class ItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String code = req.getParameter("code");
-        String name = req.getParameter("name");
+        String ItemName = req.getParameter("ItemName");
         String qty = req.getParameter("qty");
         String price = req.getParameter("price");
         String option = req.getParameter("option");
@@ -60,7 +60,7 @@ public class ItemServlet extends HttpServlet {
                 case "add":
                     PreparedStatement pstm = connection.prepareStatement("insert into Item values(?,?,?,?)");
                     pstm.setObject(1, code);
-                    pstm.setObject(2, name);
+                    pstm.setObject(2, ItemName);
                     pstm.setObject(3, qty);
                     pstm.setObject(4, price);
                     resp.addHeader("Content-Type", "application/json");
@@ -90,7 +90,7 @@ public class ItemServlet extends HttpServlet {
 
                 case "update":
                     PreparedStatement pstm3 = connection.prepareStatement("update Item set name=?,qty=?,price=? where code=?");
-                    pstm3.setObject(1, name);
+                    pstm3.setObject(1, ItemName);
                     pstm3.setObject(2, qty);
                     pstm3.setObject(3, price);
                     pstm3.setObject(4, code);
