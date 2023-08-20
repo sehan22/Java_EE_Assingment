@@ -44,9 +44,9 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
-        String name = req.getParameter("name");
-        String address = req.getParameter("address");
+        String id = req.getParameter("cusID");
+        String name = req.getParameter("cusName");
+        String address = req.getParameter("cusAddress");
         String option = req.getParameter("option");
 
         try {
@@ -64,7 +64,7 @@ public class CustomerServlet extends HttpServlet {
                     if (pstm.executeUpdate() > 0) {
                         JsonObjectBuilder response = Json.createObjectBuilder();
                         response.add("state", "Ok");
-                        response.add("message", "Successfully Added.!");
+                        response.add("message", "Successfully Added..!");
                         response.add("data", "");
                         resp.getWriter().print(response.build());
                     }
